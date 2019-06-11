@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+	<title>CRUD de Notícias</title>
+
+	<!-- Este é o estilo do Boostrap -->
+  	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  	<link rel="stylesheet" type="text/html" href="/css/datatables.min.css">
+  
+</head>
+<body>
+<main>
+	<h1>Criar Notícia</h1>
+  <div class="col-6">
+    <form action="#">      
+      <div class="form-group col-12">
+        <label for="titulo">Título</label>    
+        <input type="text" class="form-control" name="titulo" id="titulo" size="45" placeholder="Insira o título">
+      </div>
+      <div class="form-group col-4">            
+        <label for="data">Data</label>    
+        <input type="date"  class="form-control"  name="data" id="data">               
+      </div>
+      <div class="form-group col-12">    
+        <label for="conteudo">Conteúdo</label>    
+        <textarea class="form-control" name="conteudo" id="conteudo" rows="10"></textarea>
+      </div>
+      <div class="btn-group col-6">    
+        <button class="btn btn-success btn-inline-block col-6" type="button" id="salvar">Salvar</button>
+        <button class="btn btn-warning btn-block col-6" type="reset">Limpar</button>
+      </div>
+    </form>
+  </div>
+</main>
+
+</body>
+
+<!-- Fim do seu codigo -->
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/datatables.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#salvar').click(function(){
+      var data = { 
+        'titulo'   : $('#titulo').val(),
+        'data'     : $('#data').val(),
+        'conteudo' : $('#conteudo').val()
+      };
+      $.ajax({
+        type : 'post',
+        url  : "/noticia/add",
+        data : data,  
+      }).done( function( json ) {
+        alert('Usuário Cadastrado com Sucesso');
+        window.location.href = "/noticia";          
+      })
+    })
+  });
+</script>
+
+</html>

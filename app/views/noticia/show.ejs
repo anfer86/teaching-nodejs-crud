@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+	<title>CRUD de Notícias</title>
+
+	<!-- Este é o estilo do Boostrap -->
+  	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  	<link rel="stylesheet" type="text/html" href="/css/datatables.min.css">
+  
+</head>
+<body>
+
+<main>
+
+	<h1>Notícia</h1>
+
+  <div id="noticia" class="card">
+    <div id="titulo" class="card-header font-weight-bold">Título</div>
+    <div id="conteudo" class="card-body">Conteúdo</div>
+  </div>
+
+</main>
+
+</body>
+
+<!-- Fim do seu codigo -->
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/datatables.min.js"></script>
+
+<script type="text/javascript">
+
+  $(document).ready(function(){
+
+    var data = { 'noticia_id' : <%= noticia_id %> };
+
+    $.post( "/noticia/getById", data, function( json ) {
+
+      var noticia = json.data[0];
+
+      $('#titulo').html( noticia.titulo);
+
+      $('#data').html( noticia.data);
+
+      $('#conteudo').html( noticia.conteudo );
+      
+    });
+
+  });
+
+</script>
+
+</html>

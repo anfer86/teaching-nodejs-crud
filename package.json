@@ -1,0 +1,27 @@
+{
+  "name": "teaching-nodejs-crud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anfer86/teaching-nodejs-crud.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anfer86/teaching-nodejs-crud/issues"
+  },
+  "homepage": "https://github.com/anfer86/teaching-nodejs-crud#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
+    "ejs": "^2.6.1",
+    "express": "^4.17.1",
+    "express-validator": "^5.3.1",
+    "mysql": "^2.17.1"
+  }
+}
